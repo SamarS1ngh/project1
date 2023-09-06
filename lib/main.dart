@@ -4,13 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simpsonsviewer/Utils/colors.dart';
 import 'package:simpsonsviewer/Utils/texts.dart';
-import 'package:simpsonsviewer/ViewModel/Provider/someclass.dart';
+import 'package:simpsonsviewer/ViewModel/Provider/home_provider.dart';
 
 void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
-        create: (context) => SomeClass(),
+        create: (context) => CharacterListProvider(),
       )
     ],
     child: const MyApp(),
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            routerConfig: AppRouter().router,
+            routerConfig: AppRouter.router,
             theme: ThemeData(
               colorScheme: const ColorScheme.dark(
                 background: AppColors.backgroundColor,
