@@ -7,16 +7,16 @@ part of 'related_topic.dart';
 // **************************************************************************
 
 RelatedTopic _$RelatedTopicFromJson(Map<String, dynamic> json) => RelatedTopic(
-      firstUrl: json['firstUrl'] as String,
-      icon: Icon.fromJson(json['icon'] as Map<String, dynamic>),
-      result: json['result'] as String,
-      text: json['text'] as String,
+      firstUrl: json['FirstURL'] as String,
+      icon: Icon.fromJson(json['Icon'] as Map<String, dynamic>),
+      result: json['Result'] as String,
+      text: json['Text'] as String,
     );
 
 Map<String, dynamic> _$RelatedTopicToJson(RelatedTopic instance) =>
     <String, dynamic>{
-      'firstUrl': instance.firstUrl,
-      'icon': instance.icon.toJson(),
-      'result': instance.result,
-      'text': instance.text,
+      'FirstURL': instance.firstUrl,
+      'Icon': instance.icon.toJson(),
+      'Result': instance.result,
+      'Text': instance.text,
     };

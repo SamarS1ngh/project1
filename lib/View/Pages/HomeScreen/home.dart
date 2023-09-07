@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:simpsonsviewer/Utils/colors.dart';
 import 'package:simpsonsviewer/Utils/texts.dart';
+import 'package:simpsonsviewer/View/Widgets/character_list.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/home_provider.dart';
 
 class Home extends StatefulWidget {
@@ -35,10 +36,9 @@ class _HomeState extends State<Home> {
               style: AppFonts.titleText,
             ),
           ),
-          body: SingleChildScrollView(
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Center(
-                child: Padding(
-              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Container(
@@ -62,23 +62,13 @@ class _HomeState extends State<Home> {
                           hintStyle: AppFonts.subTitles),
                     ),
                   ),
-                  Consumer<CharacterListProvider>(
-                    builder: (context, characterListProvider, child) {
-                      final list = characterListProvider.list;
-                      return ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: list!.length,
-                        itemBuilder: (context, index) {
-                          return const Card(
-                            color: AppColors.errorColor,
-                          );
-                        },
-                      );
-                    },
-                  )
+                  SizedBox(
+                    height: 0.03.sh,
+                  ),
+                  CharacterListWidget()
                 ],
               ),
-            )),
+            ),
           )),
     );
   }

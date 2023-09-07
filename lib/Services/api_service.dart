@@ -14,9 +14,9 @@ class ApiService {
     if (response.data != null) {
       if (response.statusCode == 200) {
         final Map<String, dynamic> jsonData = json.decode(response.data);
-        // log(jsonData.toString());
+
         final characterModel = CharacterModel.fromJson(jsonData);
-        log(characterModel.toString());
+
         return characterModel.relatedTopics;
       } else {
         log('call failed with status code ${response.statusCode}');
