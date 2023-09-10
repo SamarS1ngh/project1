@@ -5,13 +5,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simpsonsviewer/Utils/colors.dart';
 import 'package:simpsonsviewer/Utils/texts.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/home_provider.dart';
+import 'package:simpsonsviewer/ViewModel/Provider/search_provider.dart';
 
 void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
         create: (context) => CharacterListProvider(),
-      )
+      ),
+      ChangeNotifierProxyProvider<CharacterListProvider, SearchProvider>(
+          create: (context) => SearchProvider(
+              Provider.of<CharacterListProvider>(context, listen: false)),
+          update: (_, characterListProvider, __) =>
+              SearchProvider(characterListProvider))
     ],
     child: const MyApp(),
   ));
