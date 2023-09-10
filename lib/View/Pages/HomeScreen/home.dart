@@ -1,14 +1,19 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:simpsonsviewer/Utils/colors.dart';
 import 'package:simpsonsviewer/Utils/texts.dart';
 import 'package:simpsonsviewer/View/Widgets/character_list.dart';
+import 'package:simpsonsviewer/View/Widgets/searchList.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/home_provider.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/search_provider.dart';
+
+import '../../../Utils/Routes/app_route_constants.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -96,7 +101,12 @@ class _HomeState extends State<Home> {
                                 hintText: 'Search ...',
                                 hintStyle: AppFonts.subTitles,
                                 suffixIcon: IconButton(
-                                    onPressed: () => _searchController.clear(),
+                                    onPressed: () {
+                                      _searchController.clear();
+                                      setState(() {
+                                        temp = [];
+                                      });
+                                    },
                                     icon: const Icon(
                                       Icons.cancel,
                                     ))),
@@ -114,29 +124,9 @@ class _HomeState extends State<Home> {
                   ),
                   temp.isEmpty
                       ? CharacterListWidget()
-                      : Expanded(
-                          child: ListView.builder(
-                            itemCount: temp.length,
-                            itemBuilder: (context, index) {
-                              return Card(
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 0.02.sh, horizontal: 0.02.sw),
-                                  color: const Color.fromARGB(255, 18, 18, 18),
-                                  width: 1.sw,
-                                  height: 0.1.sh,
-                                  child: Center(
-                                    child: Text(
-                                      temp[index],
-                                      style: AppFonts.subTitles.copyWith(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
+                      : SearchListWidget(
+                          names: names,
+                          temp: temp,
                         )
                 ],
               ),
