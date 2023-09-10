@@ -1,10 +1,9 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
+
 import 'package:provider/provider.dart';
 import 'package:simpsonsviewer/Utils/colors.dart';
 import 'package:simpsonsviewer/Utils/texts.dart';
@@ -12,8 +11,6 @@ import 'package:simpsonsviewer/View/Widgets/character_list.dart';
 import 'package:simpsonsviewer/View/Widgets/searchList.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/home_provider.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/search_provider.dart';
-
-import '../../../Utils/Routes/app_route_constants.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

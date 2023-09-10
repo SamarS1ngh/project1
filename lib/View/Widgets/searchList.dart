@@ -1,11 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:simpsonsviewer/View/Widgets/character_list.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/home_provider.dart';
 
 import '../../Utils/Routes/app_route_constants.dart';
