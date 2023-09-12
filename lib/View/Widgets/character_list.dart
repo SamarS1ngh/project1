@@ -14,6 +14,8 @@ class CharacterListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var orientation = MediaQuery.of(context).orientation;
+
     String getName(String text) {
       List<String> parts = text.split('-');
       if (parts.isNotEmpty) {
@@ -53,7 +55,9 @@ class CharacterListWidget extends StatelessWidget {
                                 vertical: 0.02.sh, horizontal: 0.02.sw),
                             color: const Color.fromARGB(255, 18, 18, 18),
                             width: 1.sw,
-                            height: 0.1.sh,
+                            height: orientation == Orientation.portrait
+                                ? 0.1.sh
+                                : 0.1.sw,
                             child: Center(
                               child: Text(
                                 name,

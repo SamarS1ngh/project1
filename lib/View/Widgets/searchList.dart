@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
@@ -23,6 +25,7 @@ class _SearchListWidgetState extends State<SearchListWidget> {
   Widget build(BuildContext context) {
     final names = widget.names;
     final temp = widget.temp;
+    var orientation = MediaQuery.of(context).orientation;
     final list =
         Provider.of<CharacterListProvider>(context, listen: false).list;
     return Expanded(
@@ -44,7 +47,7 @@ class _SearchListWidgetState extends State<SearchListWidget> {
                     vertical: 0.02.sh, horizontal: 0.02.sw),
                 color: const Color.fromARGB(255, 18, 18, 18),
                 width: 1.sw,
-                height: 0.1.sh,
+                height: orientation == Orientation.portrait ? 0.1.sh : 0.1.sw,
                 child: Center(
                   child: Text(
                     temp[index],

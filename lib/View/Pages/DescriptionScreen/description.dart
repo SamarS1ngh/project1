@@ -18,30 +18,32 @@ class DescriptionPage extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0.04.sw),
-        child: Column(
-          children: [
-            Text(
-              name!,
-              style: AppFonts.titleText,
-            ),
-            imageLink == ""
-                ? Image.asset('assets/demon king.png')
-                : Image.network("$imgBaseUrl$imageLink"),
-            SizedBox(
-              height: 0.03.sh,
-            ),
-            Text(
-              'Description',
-              style: AppFonts.headingText
-                  .copyWith(color: AppColors.primaryColor, fontSize: 24),
-            ),
-            Text(
-              character!['Text'],
-              style: AppFonts.bodyText,
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 0.04.sw),
+          child: Column(
+            children: [
+              Text(
+                name!,
+                style: AppFonts.titleText,
+              ),
+              imageLink == ""
+                  ? Image.asset('assets/demon king.png')
+                  : Image.network("$imgBaseUrl$imageLink"),
+              SizedBox(
+                height: 0.03.sh,
+              ),
+              Text(
+                'Description',
+                style: AppFonts.headingText
+                    .copyWith(color: AppColors.primaryColor, fontSize: 24),
+              ),
+              Text(
+                character!['Text'],
+                style: AppFonts.bodyText,
+              ),
+            ],
+          ),
         ),
       ),
     ));

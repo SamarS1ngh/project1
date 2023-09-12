@@ -1,11 +1,12 @@
-import 'package:simpsonsviewer/Utils/Routes/app_router_config.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:simpsonsviewer/Utils/colors.dart';
-import 'package:simpsonsviewer/Utils/texts.dart';
+import 'package:provider/provider.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/home_provider.dart';
 import 'package:simpsonsviewer/ViewModel/Provider/search_provider.dart';
+
+import 'Utils/Colors.dart';
+import 'Utils/Routes/app_router_config.dart';
+import 'Utils/texts.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -59,23 +60,5 @@ class MyApp extends StatelessWidget {
             ),
           );
         });
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    super.key,
-  });
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Scaffold(),
-    );
   }
 }

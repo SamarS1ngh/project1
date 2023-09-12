@@ -56,6 +56,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    var orientation = MediaQuery.of(context).orientation;
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -77,7 +78,9 @@ class _HomeState extends State<Home> {
                         names =
                             SearchProvider(characterListProvider).getNames();
                         return Container(
-                          height: 0.05.sh,
+                          height: orientation == Orientation.portrait
+                              ? 0.05.sh
+                              : 0.06.sw,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               color: AppColors.accentColor,
